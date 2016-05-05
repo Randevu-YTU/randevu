@@ -26,16 +26,13 @@
   <form class="form-horizontal" role="form">
     <div class="form-group">
   <div class="dropdown">
-  
-  
-    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Tutorials
-    <span class="caret"></span></button>
     <label class="control-label col-sm-2" for="email">Fakülte:</label>
-    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Elektrik-Elektronik</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Eğitim </a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">İnşaat</a></li>
-    </ul>
+<select>
+<option>Seçiniz..</option>
+    <option>Elektrik-Elektronik</option>
+    <option>Eğitim</option>
+    <option>İnşaat</option>
+</select>
   </div>
   
   
@@ -45,56 +42,56 @@
 <div class="dropdown">
   
   
-    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Tutorials
-    <span class="caret"></span></button>
+
     <label class="control-label col-sm-2" for="email">Bölüm:</label>
-    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Bilgisayar</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">elektrik </a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">elektronik</a></li>
-    </ul>
+<select>
+<option>Seçiniz..</option>
+    <option>Elektrik</option>
+    <option>Elektronik</option>
+    <option>Bilgisayar</option>
+</select>
   </div>
     </div>
     <div class="form-group">        
         <div class="dropdown">
-    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Tutorials
-    <span class="caret"></span></button>
     <label class="control-label col-sm-2" for="email">hoca adı:</label>
-    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">ati</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">amaç </a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">elif</a></li>
-    </ul>
+<select>
+<option>Seçiniz..</option>
+    <option>Ahmet Tevfik İNAN</option>
+    <option>M. Amaç GÜVENSAN</option>
+    <option>Elif KARSLIGİL</option>
+</select>
   </div>
     </div>
   </form>
   
   
     	</div>
-    <div id="adim2" class="tab-pane fade">
-      <h3>Adım 2</h3>
-      
-        <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Tutorials
-    <span class="caret"></span></button>
-    <label class="control-label col-sm-2" for="email">Konu:</label>
-    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Ara-Proje</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Bitirme Projesi </a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Ders</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Diğer</a></li>
-    </ul>
-    </br>
-      <label class="control-label col-sm-2" for="email">Açıklama:</label>
-  </div>
+
     
     
     <div id="adim3" class="tab-pane fade">
-      <h3>Adım 3</h3>
-      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+      <h3>Adım 2</h3>
+      <p>AD: \n SOYAD: image ..   // TABLO</p>
     </div>
   </div>
 </div>
 
+    <div id="adim2" class="tab-pane fade">
+      <h3>Adım 3</h3>
+      
+        <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Tutorials
+    <span class="caret"></span></button>
+    <label class="control-label col-sm-2" for="email">Konu:</label>
+<select>
+<option>Seçiniz..</option>
+    <option>Proje</option>
+    <option>Ders</option>
+    <option>Diğer</option>
+</select>
+    </br>
+      <label class="control-label col-sm-2" for="email">Açıklama:</label>
+  </div>
 </body>
 </html>
 
