@@ -26,33 +26,32 @@ if(!isset($_SESSION['id'])) {
     mysqli_select_db($conn, $db);
     mysqli_set_charset($conn, 'utf8');
 
-    $query = "SELECT password,mail,fname,lname,tc,bdate FROM user WHERE id = '$sessionid'";
+    $query = "SELECT yetki,password,mail,fname,lname FROM user WHERE id = '$sessionid'";
     $result = mysqli_query($conn,$query);
     $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
     $ad=$row['fname'];
     $soyad=$row['lname'];
     $mail=$row['mail'];
-    $tc=$row['tc'];
-    $bdate=$row['bdate'];
     $psw=$row['password'];
+    $yetki=$row['yetki'];
 
-    if(isset($_POST['name']) && isset($_POST['sname']) && isset($_POST['mail']) && isset($_POST['tck']) && isset($_POST['birthday'])) {
+    if(isset($_POST['name']) && isset($_POST['sname']) && isset($_POST['mail'])) {
         $fname = $_POST['name'];
         $lname = $_POST['sname'];
         $email = $_POST['mail'];
-        $tck = $_POST['tck'];
-        $bday = $_POST['birthday'];
         $pwd=$_POST['pwd'];
         $pwd2=$_POST['pwd2'];
         if ($fname != $ad) {
             $query = "UPDATE user SET fname = '$fname' WHERE id = '$sessionid'";
             if (mysqli_query($conn, $query)) {
+                header('Location: hesap_bilgileri.php');
                 echo "isim degistirildi </br>";
             }
         }
         if ($lname != $soyad) {
             $query = "UPDATE user SET lname='$lname' WHERE id = '$sessionid'";
             if (mysqli_query($conn, $query)) {
+                header('Location: hesap_bilgileri.php');
                 echo "soyisim degistirildi</br>";
             }
         }
@@ -60,27 +59,15 @@ if(!isset($_SESSION['id'])) {
 
             $query = "UPDATE user SET mail='$email' WHERE id = '$sessionid'";
             if (mysqli_query($conn, $query)) {
+                header('Location: hesap_bilgileri.php');
                 echo "mail degistirildi</br>";
-            }
-        }
-        if ($tck != $tc) {
-
-            $query = "UPDATE user SET tc='$tck' WHERE id = '$sessionid'";
-            if (mysqli_query($conn, $query)) {
-                echo "tck degistirildi</br>";
-            }
-        }
-        if ($bday != $bdate) {
-
-            $query = "UPDATE user SET bdate='$bday' WHERE id = '$sessionid'";
-            if (mysqli_query($conn, $query)) {
-                echo "dogum tarihi degistirildi</br>";
             }
         }
         if ($pwd == $pwd2){
             if( $pwd!=$psw) {
                 $query = "UPDATE user SET password='$pwd' WHERE id = '$sessionid'";
                 if (mysqli_query($conn, $query)) {
+                    header('Location: hesap_bilgileri.php');
                     echo "sifre degistirildi</br>";
                 }
             }
@@ -90,12 +77,30 @@ if(!isset($_SESSION['id'])) {
     }
 }
 ?>
-<ul>
+<ul><?php
+    echo "<img src='user.png' alt='user' > <p align='center'><br/>".$ad." ".$soyad."</p><br/>";?>
+    <ul class="list-unstyled navigation mb-0">
+        <li><a href="anamenu.php"><i class="ti-home"></i> Anasayfa</a></li>
+        <li><a href="hesap_bilgileri.php" class="active bubble"><i class="ti-home"></i> Hesap Bilgileri</a></li>
+        <li class="panel">
+            <a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse3"
+               aria-expanded="false" aria-controls="collapse3"
+               class="collapsed">
+                <i class="ti-ruler-pencil"></i> Randevu Al</a>
+            <ul id="collapse3" class="list-unstyled collapse ">
+                <li><a href="adim1.php" class="">Adım 1</a></li>
+                <li><a href="adim2.php" class="">Adım 2</a></li>
+                <li><a href="adim3.php" class="">Adım 3</a></li>
+            </ul>
+        </li>
+        <?php
+        if($yetki>1)
+            echo"<li><a href='randevuayarla.php'><i class='ti-home'></i> Randevu Ayarla</a></li>";
+        ?>
+        <li><a href="randevu_gecmisi.php" ><i class="ti-home"></i> Randevu Gecmisi</a></li>
+        <li><a href="cikis.php"><i class="ti-home"></i> Cikis</a></li>
+    </ul>
 
-    <li><a href="anamenu.php">Ana Menu</a></li>
-    <li><a class="active" href="hesap_bilgileri.php">Bilgilerim</a></li>
-    <li><a href="randevualan.php">Randevu Zamanı Seç</a></li>
-    <li><a href="ayarlar.php">Ayarlar</a></li>
 </ul>
 
 <div style="margin-left:15%;padding:1px 16px;height:1000px;">
@@ -113,13 +118,6 @@ if(!isset($_SESSION['id'])) {
         <input type="password" id="pwd" name="pwd" value="<?php echo $psw;?>">
         <label for="pwd2">Şifre Tekrar</label>
         <input type="password" id="pwd2" name="pwd2" value="<?php echo $psw;?>">
-
-        <label for="tck">TCKimlikNo</label>
-        <input type="text" id="tck" name="tck" value="<?php echo $tc;?>">
-
-        <label for="birthday">Doğum Günü  </label>
-        <input type="date" id="birthday" name="birthday" value="<?php echo $bdate;?>">
-
 
 
         <input type="submit" value="Değiştir">
